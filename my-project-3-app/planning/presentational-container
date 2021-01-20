@@ -1,0 +1,28 @@
+Presentational/container components are subjected to change:
+App
+    Navigational Container {
+        Navbar
+            Title
+            Tabs
+                DisplayTab
+    }
+    Task Container {
+        TaskBody
+            TaskField
+            AddButton
+            TaskList
+                TaskItem
+            DisplayOptions
+                All
+                Active
+                Completed
+    }
+    Contact Container {
+        ContactBody
+            FirstName
+            LastName
+            Email
+            Comments
+            SubmitButton
+    }
+    

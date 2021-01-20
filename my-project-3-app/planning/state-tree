@@ -1,0 +1,6 @@
+{
+    selectedTask: id,
+    taskStatus: array,
+    taskData: array,
+    numOfTasks: num
+}
