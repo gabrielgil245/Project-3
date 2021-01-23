@@ -1,19 +1,12 @@
 import Grid from 'antd/lib/card/Grid';
 import React, {useState, useEffect} from 'react';
 
-function TodoItem (todo) {
-    console.log(todo)
+function TodoItem (props) {
     return (
         <div>
-            <li className={'p-2 border-b'}>
+             <li className={'p-2'}>
                 <input type="checkbox" className={"mr-1 align-middle"}/>
-                <li 
-                    style={{
-                        textDecoration: todo.completed ? 
-                        "line-through" : null
-                    }}
-                    className={"text-gray-700 font-semibold"}>{todo.task}</li>
-                <button>X</button>
+                <span>{props.task.todo}</span>
             </li>
         </div>
     )

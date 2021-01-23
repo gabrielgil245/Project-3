@@ -1,8 +1,8 @@
 import './App.css';
 import React, {useState, useEffect, Component} from "react";
+import {connect} from "react-redux";
 import Nav from "./Nav";
 import "antd/dist/antd.css";
-// import { createStore, combineReducers } from "redux";
 
 import {
   BrowserRouter as Router,
@@ -10,18 +10,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
 import About from "./About"
 import Todos from "./Todos";
-import TodosList from "./TodosList";
 import Contact from "./Contact";
 
-function App() {
-
-  const [todos, setTodos] = useState([]);
-
-  function addTodo(todo) {
-    setTodos([todo, ...todo]);
-  }
+function App(props) {
 
   return (
     <Router>
@@ -34,15 +28,20 @@ function App() {
           <About/>
         </Route>
         <Route path="/todos">
-          <Todos addTodo={addTodo}/>
-          <TodosList todos={todos} />
+          <Todos tasks={props.tasks}/>
         </Route>
         <Route path="/contact">
           <Contact/>
         </Route>
       </Switch>
     </Router>
-    );
+  );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    tasks: state.tasks
+  }
+}
+
+export default connect(mapStateToProps)(App);
