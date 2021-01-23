@@ -1,6 +1,6 @@
 import Grid from 'antd/lib/card/Grid';
 import React, {useState, useEffect} from 'react';
-import ListItem from "./ListItem"; 
+import TodoItem from "./TodoItem"; 
 
 function TodosList (props) {
     const [todos, setTodos] = useState([
@@ -12,9 +12,13 @@ function TodosList (props) {
     return (
         <div className={"bg-gray-200 mt-5 p-5"}>
             <ul>
-                {todos.map((task, index) => {
+                {todos.map(todo => (
+                    <TodoItem key={todo.id} todo={todo}/>
+                ))}
+                
+                {/* {todos.map((task, index) => {
                     return <ListItem text={task.text} key={index}/>
-                })}
+                })} */}
             </ul>
         </div>
     )
