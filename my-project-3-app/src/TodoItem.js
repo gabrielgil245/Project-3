@@ -16,26 +16,29 @@ function TodoItem (props) {
     
     return (
         <>
-        <form onChange={onStatusChange}>
-            <select defaultValue={props.task.status}>
-                {TASKS_STATUSES.map(status => (
-                    <option value={status} key={status}>{status}</option>
-                ))}
-            </select>
-        </form>
-             <li className={'p-2'}>
-                 <div className="grid grid-cols-2">
-                    <span className="flex justify-start">{props.task.todo}</span>
-                    <span className="flex justify-end">
-                        <FontAwesomeIcon 
-                        icon={faTrash}
-                        className="cursor-pointer" 
-                        style={{color: "red"}}
-                        onClick={() => onRemoveTask(props.task.id)}
-                        />
-                    </span>
-                 </div>
-            </li>
+            <div>
+                <form className={"grid grid-cols-6 flex items-center p-2"} onChange={onStatusChange}>
+                    <select className={"col-span-2 text-sm"} defaultValue={props.task.status}>
+                        {TASKS_STATUSES.map(status => (
+                            <option className={"text-xs"} value={status} key={status}>{status}</option>
+                        ))}
+                    </select>
+                    <li className={'col-span-3 p-2'}>
+                        <span>{props.task.todo}</span>
+                    </li>
+                    <li className={'col-span-1 flex justify-end p-2'}>
+                        <span>
+                            <FontAwesomeIcon 
+                            icon={faTrash}
+                            className="text-lg cursor-pointer" 
+                            style={{color: "red"}}
+                            onClick={() => onRemoveTask(props.task.id)}
+                            />
+                        </span>
+                    </li>
+                </form>
+                
+            </div>    
         </>
     )
 }

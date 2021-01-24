@@ -5,7 +5,7 @@ const TodosList = (props) => {
     return (
         <div className={"bg-gray-200"}>
             <ul>
-                <div className={"pl-2"}>
+                <div className={"flex justify-center text-lg font-bold bg-gray-400"}>
                     {props.status}
                 </div>
                 {props.tasks.map(task => (

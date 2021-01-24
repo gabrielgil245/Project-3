@@ -1,26 +1,25 @@
 import React from 'react';
 import {
-    Link,
     NavLink
 } from "react-router-dom";
 
 function Nav (props) {
     return (
         <div>
-            <div className={"flex justify-center items-center p-2 bg-blue-400 text-lg"}>
-                <span>
+            <div className={"grid grid-cols-9 py-2 bg-blue-400 text-lg"}>
+                <span className={"col-span-3 flex justify-center"}>
                     <NavLink to="/about" activeClassName="font-bold">
-                        <span className={"p-10 cursor-point text-white"}>About</span>
+                        <span className={"cursor-point text-white"}>About</span>
                     </NavLink>
                 </span>
-                <span>
+                <span className={"col-span-3 flex justify-center"}>
                     <NavLink to="/todos" activeClassName="font-bold">
-                        <span className={"p-10 cursor-point text-white"}>Todos</span>
+                        <span className={"cursor-point text-white"}>Todos</span>
                     </NavLink>
                 </span>
-                <span>
+                <span className={"col-span-3 flex justify-center"}>
                     <NavLink to="/contact" activeClassName="font-bold">
-                        <span className={"p-10 cursor-point text-white"}>Contact</span>
+                        <span className={"cursor-point text-white"}>Contact</span>
                     </NavLink>
                 </span>
             </div>
