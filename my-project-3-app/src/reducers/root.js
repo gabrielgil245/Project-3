@@ -1,21 +1,6 @@
 import { CREATE_TASK, EDIT_TASK } from "../actions/types";
 
 const initialState = [];
-    // {
-    //     id: 1,
-    //     todo: "Learn and understand ReactJS!",
-    //     status: "Completed"
-    // },
-    // {
-    //     id: 2,
-    //     todo: "Learn and understand Redux!",
-    //     status: "All"
-    // },
-    // {
-    //     id: 3,
-    //     todo: "Remember to complete About & Contact pages!",
-    //     status: "Active"
-    // }
 
 const tasks = (state = { tasks: initialState }, action) => {
     const { payload } = action;

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { Tabs } from "antd";
 import TodosList from "./TodosList";
 
@@ -24,7 +24,13 @@ function TodosPage (props) {
             todo
         });
         event.preventDefault();
+        resetForm();
     };
+
+    const resetForm = () => {
+        setTodo("")
+        showForm(false);
+    }
 
     const renderTaskLists = () => {
         const {tasks} = props;
