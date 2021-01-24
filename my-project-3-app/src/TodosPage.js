@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
-import { Tabs } from "antd";
 import TodosList from "./TodosList";
-
-const { TabPane } = Tabs;
 
 const TASKS_STATUSES = ["All", "Active", "Completed"];
 
@@ -25,7 +22,7 @@ function TodosPage (props) {
         });
         event.preventDefault();
         resetForm();
-    };
+    }
 
     const resetForm = () => {
         setTodo("")
@@ -42,7 +39,8 @@ function TodosPage (props) {
                     key={status} 
                     status={status} 
                     tasks={statusTasks}
-                    onStatusChange={props.onStatusChange}/>
+                    onStatusChange={props.onStatusChange}
+                    onRemoveTask={props.onRemoveTask}/>
                 </div>
             )
         })
@@ -73,21 +71,6 @@ function TodosPage (props) {
             </div>                                    
 
             <div className={"mt-10"}></div>
-            
-            <Tabs defaultActiveKey="1" type={"card"}>
-                <TabPane tab="All" key="All">
-                    {/* {renderTaskLists()} */}
-                </TabPane>
-                <TabPane tab="Active" key="Active">
-                    {/* {renderTaskLists()} */}
-                </TabPane>
-                <TabPane tab="Completed" key="Completed">
-                    {/* {renderTaskLists()} */}
-                </TabPane>
-            </Tabs>
-            
-            <div className={"mt-10"}></div>
-
         </div>
     );
 }

@@ -11,7 +11,8 @@ const TodosList = (props) => {
                 {props.tasks.map(task => (
                     <TodoItem key={task.id} 
                     task={task} 
-                    onStatusChange={props.onStatusChange}/>    
+                    onStatusChange={props.onStatusChange}
+                    onRemoveTask={props.onRemoveTask}/>    
                 ))}               
             </ul>
         </div>

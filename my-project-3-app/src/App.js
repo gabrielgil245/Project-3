@@ -3,12 +3,13 @@ import React from "react";
 import {connect} from "react-redux";
 import Nav from "./Nav";
 import "antd/dist/antd.css";
-import {createTask, editTask} from "./actions/main";
+import {createTask, editTask, removeTask} from "./actions/main";
 
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 
 import About from "./About"
@@ -23,7 +24,11 @@ function App(props) {
 
   const onCreateTask = ({todo}) => {
     props.dispatch(createTask({todo}));
-  };
+  }
+
+  const onRemoveTask = (id) => {
+    props.dispatch(removeTask(id))
+  }
 
   return (
     <Router>
@@ -38,8 +43,10 @@ function App(props) {
         <Route path="/todos">
           <TodosPage tasks={props.tasks} 
           onStatusChange={onStatusChange}
-          onCreateTask={onCreateTask}/>
+          onCreateTask={onCreateTask}
+          onRemoveTask={onRemoveTask}/>
         </Route>
+        <Redirect exact from= "/" to="/todos"/>
         <Route path="/contact">
           <Contact/>
         </Route>

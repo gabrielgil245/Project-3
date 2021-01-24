@@ -4,7 +4,7 @@ Task Management Web App
 
 Web app is intended for users to build a "todo" list, enabling users to display a list of their to-do items; check off as complete or delete to-do item(s); and filter items to display incomplete, completed, or both.
 
-Technologies used HTML, CSS, Javascript, Tailwind CSS, Ant Design, ReactJS, React Router, Redux, React Redux, UUID
+Technologies used HTML, CSS, Javascript, Tailwind CSS, ReactJS, React Router, Redux, React Redux, UUID, Font Awesome
 
 Ideas for future improvment:
 1.)

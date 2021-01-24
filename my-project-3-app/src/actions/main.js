@@ -1,4 +1,4 @@
-import { CREATE_TASK, EDIT_TASK } from "./types";
+import { CREATE_TASK, EDIT_TASK, REMOVE_TASK } from "./types";
 import { v4 as uuidv4 } from "uuid";
 
 export const editTask = (id, params = {}) => {
@@ -19,5 +19,12 @@ export const createTask = ({todo}) => {
             todo,
             status: "Active"
         }
+    };
+};
+
+export const removeTask = (id) => {
+    return {
+        type: REMOVE_TASK,
+        id
     };
 };
