@@ -3,7 +3,7 @@ import React from "react";
 import {connect} from "react-redux";
 import Nav from "./Nav";
 import "antd/dist/antd.css";
-import {editTask} from "./actions/main";
+import {createTask, editTask} from "./actions/main";
 
 import {
   BrowserRouter as Router,
@@ -21,6 +21,10 @@ function App(props) {
     props.dispatch(editTask(id, {status}))
   }
 
+  const onCreateTask = ({todo}) => {
+    props.dispatch(createTask({todo}));
+  };
+
   return (
     <Router>
       <p class="flex justify-start font-bold text-lg">QuickStart Project 3 Task Manager</p>
@@ -32,7 +36,9 @@ function App(props) {
           <About/>
         </Route>
         <Route path="/todos">
-          <TodosPage tasks={props.tasks} onStatusChange={onStatusChange}/>
+          <TodosPage tasks={props.tasks} 
+          onStatusChange={onStatusChange}
+          onCreateTask={onCreateTask}/>
         </Route>
         <Route path="/contact">
           <Contact/>

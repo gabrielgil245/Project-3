@@ -1,4 +1,3 @@
-import Grid from 'antd/lib/card/Grid';
 import React, {useState, useEffect} from 'react';
 
 const TASKS_STATUSES = ["All", "Active", "Completed"];

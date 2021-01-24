@@ -1,4 +1,5 @@
-import { EDIT_TASK } from "./types";
+import { CREATE_TASK, EDIT_TASK } from "./types";
+import { v4 as uuidv4 } from "uuid";
 
 export const editTask = (id, params = {}) => {
     return {
@@ -6,6 +7,17 @@ export const editTask = (id, params = {}) => {
         payload: {
             id,
             params,
+        }
+    };
+};
+
+export const createTask = ({todo}) => {
+    return {
+        type: CREATE_TASK,
+        payload: {
+            id: uuidv4(),
+            todo,
+            status: "Active"
         }
     };
 };

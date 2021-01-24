@@ -1,8 +1,5 @@
-import Grid from 'antd/lib/card/Grid';
 import React, {useState, useEffect} from 'react';
 import { Tabs } from "antd";
-import { Button } from "antd";
-import ToggleButton from "./ToggleButton";
 import TodosList from "./TodosList";
 
 const { TabPane } = Tabs;
@@ -11,16 +8,23 @@ const TASKS_STATUSES = ["All", "Active", "Completed"];
 
 function TodosPage (props) {
 
-    const [taskForm, showTaskForm] = useState(false);
+    const [form, showForm] = useState(false);
     const [todo, setTodo] = useState("");
 
-    const toggleForm = () => {
-        showTaskForm(!taskForm);
+    const toggleButton = () => {
+        showForm(!form);
     }
 
     const onChangeTodo = (event) => {
         setTodo(event.target.value);
     }
+
+    const onCreateTask = (event) => {
+        props.onCreateTask({
+            todo
+        });
+        event.preventDefault();
+    };
 
     const renderTaskLists = () => {
         const {tasks} = props;
@@ -36,27 +40,26 @@ function TodosPage (props) {
                 </div>
             )
         })
-    }
+    }  
 
     return (
         <div>
-            {/* <ToggleButton/> */}
-
             <div className="flex justify-center mt-10">
-            <button onClick={toggleForm} 
+            <button onClick={toggleButton} 
             className={"bg-green-500 hover:bg-green-700 text-white font-black py-2 px-4 rounded-full"}>
                 +</button>
             </div>
 
-            {taskForm && (
-            <div className={"p-5 m-5 border md:m-12 lg:m-20"}>
+            {form && (
+            // Test onSubmit on another element
+            <form onSubmit={onCreateTask} className={"p-5 m-5 border md:m-12 lg:m-20"}>
                 <div className={"flex justify-center items-center"}>
                     <input type="text" className={"p-2 mr-5 border rounded w-full"}
                     placeholder={"Task..."}
                     onChange={onChangeTodo}/>
-                    <Button type="submit primary">Add</Button>
+                    <button type="submit">Add</button>
                 </div>
-            </div>
+            </form>
             )}
             
             <div>
