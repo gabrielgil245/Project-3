@@ -32,10 +32,10 @@ function App(props) {
 
   return (
     <Router>
-      <p class="flex justify-start font-bold text-lg">QuickStart Project 3 Task Manager</p>
-              
+      <p class="flex justify-center md:justify-start p-2 m-2 font-bold text-lg md:text-3xl">
+        React/Redux Todo List App
+      </p>  
       <Nav/>     
-
       <Switch>
         <Route path="/about">
           <About/>
