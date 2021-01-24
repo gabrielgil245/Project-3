@@ -4,13 +4,12 @@ import { Tabs } from "antd";
 import { Button } from "antd";
 import ToggleButton from "./ToggleButton";
 import TodosList from "./TodosList";
-import TodoItem from "./TodoItem";
 
 const { TabPane } = Tabs;
 
 const TASKS_STATUSES = ["All", "Active", "Completed"];
 
-function Todos (props) {
+function TodosPage (props) {
 
     const [taskForm, showTaskForm] = useState(false);
     const [todo, setTodo] = useState("");
@@ -29,7 +28,11 @@ function Todos (props) {
             const statusTasks = tasks.filter(task => task.status === status);
             return (
                 <div key={id}>
-                    <TodosList key={status} status={status} tasks={statusTasks}/>
+                    <TodosList 
+                    key={status} 
+                    status={status} 
+                    tasks={statusTasks}
+                    onStatusChange={props.onStatusChange}/>
                 </div>
             )
         })
@@ -80,4 +83,4 @@ function Todos (props) {
     );
 }
 
-export default Todos;
+export default TodosPage;

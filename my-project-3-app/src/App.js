@@ -1,21 +1,25 @@
 import './App.css';
-import React, {useState, useEffect, Component} from "react";
+import React from "react";
 import {connect} from "react-redux";
 import Nav from "./Nav";
 import "antd/dist/antd.css";
+import {editTask} from "./actions/main";
 
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import About from "./About"
-import Todos from "./Todos";
+import TodosPage from "./TodosPage";
 import Contact from "./Contact";
 
 function App(props) {
+
+  const onStatusChange = (id, status) => {
+    props.dispatch(editTask(id, {status}))
+  }
 
   return (
     <Router>
@@ -28,7 +32,7 @@ function App(props) {
           <About/>
         </Route>
         <Route path="/todos">
-          <Todos tasks={props.tasks}/>
+          <TodosPage tasks={props.tasks} onStatusChange={onStatusChange}/>
         </Route>
         <Route path="/contact">
           <Contact/>
@@ -41,7 +45,7 @@ function App(props) {
 const mapStateToProps = state => {
   return {
     tasks: state.tasks
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(App);
