@@ -2,18 +2,21 @@ import React from 'react';
 
 function About (props) {
     return (
-        <div className={"grid grid-cols-12 -3"}>
-            <span className={"col-start-1"}></span>
-            <p className={"pt-6 text-lg col-span-10"}>
+        <div className={"grid grid-cols-12"}>
+            <p className={"pt-4 text-lg col-start-2 col-span-10"}>
                 This web app is intended for users to build a "todo" list, 
                 enabling users to display a list of their to-do items. Users may
-                mark their tasks with one of three statuses, 
-                which will filter between three status boxes.
+                mark their task as completed, filter the tasks to see only active or,
+                completed tasks, or to view tasks both active and completed.
                 Lastly, users may delete to-do item(s) at their discretion.
             </p>
-            <span className={"col-start-1"}></span>
-            <p className={"py-6 text-lg col-span-10"}>
+            <p className={"py-2 text-lg col-start-2 col-span-10"}>
                 When ready, click the "Todo" tab to start creating your task list!
+            </p>
+            <p className={"py-2 text-lg col-start-2 col-span-10"}>
+                As for the Contact form, the page contains self-managed states that 
+                users may view with a React Developer Tool extension. Take a moment to
+                view the four states present in the Contact page!
             </p>
         </div>
     )

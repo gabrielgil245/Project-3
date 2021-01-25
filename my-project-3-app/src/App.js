@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState, useEffect} from "react";
 import {connect} from "react-redux";
-import Nav from "./Nav";
+import Nav from "./components/Nav";
 import "antd/dist/antd.css";
 import {createTask, editTask, removeTask} from "./actions/main";
 
@@ -13,28 +13,26 @@ import {
 } from "react-router-dom";
 
 import About from "./About"
-import TodosPage from "./TodosPage";
+import TodosPage from "./components/TodosPage";
+import TodosList from "./components/TodosList";
 import Contact from "./Contact";
-
-//TEST TO BE DELETED LATER
-import TodosPageCopy from "./TodosPageCopy";
-import TodosListCopy from "./TodosListCopy";
 
 function App(props) {
 
-  const onStatusChange = (id, status) => {
-    props.dispatch(editTask(id, {status}))
-  }
+  // React-Redux
+  // const onStatusChange = (id, status) => {
+  //   props.dispatch(editTask(id, {status}))
+  // }
 
-  const onCreateTask = ({todo}) => {
-    props.dispatch(createTask({todo}));
-  }
+  // const onCreateTask = ({todo}) => {
+  //   props.dispatch(createTask({todo}));
+  // }
 
-  const onRemoveTask = (id) => {
-    props.dispatch(removeTask(id))
-  }
+  // const onRemoveTask = (id) => {
+  //   props.dispatch(removeTask(id))
+  // }
 
-  //TEST TO BE DELETED LATER 
+  // React Hooks
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status,setStatus] = useState("All");
@@ -87,20 +85,25 @@ function App(props) {
           <About/>
         </Route>
         <Route path="/todos">
-          <TodosPage tasks={props.tasks} 
-          onStatusChange={onStatusChange}
-          onCreateTask={onCreateTask}
-          onRemoveTask={onRemoveTask}/>
-          {/* <TodosPageCopy inputText={inputText} 
+          
+          {/* Primarily React */}
+          <TodosPage inputText={inputText} 
           setInputText={setInputText} 
           todos={todos} 
           setTodos={setTodos}
           status={status}
           setStatus={setStatus}/>
-          <TodosListCopy
+          <TodosList
           todos={todos} 
           setTodos={setTodos}
-          filteredTodos={filteredTodos}/> */}
+          filteredTodos={filteredTodos}/>
+          
+          {/* React Redux */}
+          {/* <TodosPage tasks={props.tasks} 
+          onStatusChange={onStatusChange}
+          onCreateTask={onCreateTask}
+          onRemoveTask={onRemoveTask}/> */}
+          
         </Route>
         <Redirect exact from= "/" to="/todos"/>
         <Route path="/contact">
