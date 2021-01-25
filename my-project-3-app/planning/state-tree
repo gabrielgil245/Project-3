@@ -1,6 +1,13 @@
+States subjected to change:
 {
     selectedTask: id,
     taskStatus: array,
     taskData: array,
     numOfTasks: num
+}
+States actually used:
+{
+    id: string (uniquely generated),
+    tasks: [],
+    status: string
 }

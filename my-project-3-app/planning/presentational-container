@@ -4,16 +4,16 @@ App
         Navbar
             Title
             Tabs
-                DisplayTab
     }
     Task Container {
         TaskBody
+            ToggleTaskButton
             TaskField
             AddButton
             TaskList
                 TaskItem
             DisplayOptions
-                All
+                Not Started
                 Active
                 Completed
     }
