@@ -81,10 +81,10 @@ function App(props) {
       </p>  
       <Nav/>     
       <Switch>
-        <Route path="/about">
+        <Route path="/Project-3/about">
           <About/>
         </Route>
-        <Route path="/todos">
+        <Route path="/Project-3/todos">
           
           {/* Primarily React */}
           <TodosPage inputText={inputText} 
@@ -105,8 +105,9 @@ function App(props) {
           onRemoveTask={onRemoveTask}/> */}
           
         </Route>
-        <Redirect exact from= "/" to="/todos"/>
-        <Route path="/contact">
+        <Redirect exact from= "/" to="/Project-3/todos"/>
+        <Redirect exact from= "/Project-3/" to="/Project-3/todos"/>
+        <Route path="/Project-3/contact">
           <Contact/>
         </Route>
       </Switch>
