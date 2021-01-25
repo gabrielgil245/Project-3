@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import TodosList from "./TodosList";
 
-const TASKS_STATUSES = ["All", "Active", "Completed"];
+const TASKS_STATUSES = ["Not Started", "Active", "Completed"];
 
 function TodosPage (props) {
 
@@ -66,7 +66,7 @@ function TodosPage (props) {
             </form>
             )}
             
-            <div className="break-words grid md:grid-cols-3">
+            <div className="break-words grid md:grid-cols-3 gap-4">
                 {renderTaskLists()}
             </div>                                    
 

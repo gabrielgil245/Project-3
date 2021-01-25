@@ -17,7 +17,7 @@ export const createTask = ({todo}) => {
         payload: {
             id: uuidv4(),
             todo,
-            status: "Active"
+            status: "Not Started"
         }
     };
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
-const TASKS_STATUSES = ["All", "Active", "Completed"];
+const TASKS_STATUSES = ["Not Started", "Active", "Completed"];
 
 function TodoItem (props) {
     
