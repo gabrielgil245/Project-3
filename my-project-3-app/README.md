@@ -8,5 +8,5 @@ Technologies used HTML, CSS, Javascript, Tailwind CSS, ReactJS, React Router, Re
 
 Ideas for future improvment:
 1.) The Tailwind CSS library was used to style and add responsiveness for Web App; however, no custom CSS styles were used as illustrated from index.css. Utilizing custom made CSS styles may aid in styling the web app in a manner that the Tailwind CSS library may not.
-2.) The tasks that were added will stay, even when changing between pages, such as from the Todos page to the Contact page and back; however, if the web site is refreshed, then the information, or states reset. As such, it would improve the app to retain the information even after refreshing the page.
-3.)
+2.) Initially, this web app was created with React-Redux; however, it was reworked to primarily use React with Hooks given the scope of the project. Still, the transition back to React-Redux may help to expand the features for this web app, such as sending notifications to the user, when a task item should be started and its deadline.
+3.) The tasks are now locally stored in the users device; however, an improvement to this would be in enabling users to create an account, so that the state of these tasks are stored externally for the user's account.
